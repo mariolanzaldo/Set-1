@@ -1,24 +1,16 @@
-function NewDiv (color,bckcolor,fontSz){
-    this.color = color;
-    this.bckcolor = bckcolor;
-    this.fontSz = fontSz;
-}
-
-NewDiv.prototype.create = function (){
-    let container = document.querySelector(".container");
-    let div = document.createElement("div");
-    if (this.bckcolor === undefined || this.fontSz === undefined || this.color === undefined){
-        div.style.fontSize = "20px";
-        div.style.color = "whitesmoke";
-        div.style.backgroundColor = "gray";
+let customize = function (color, bckColor, fontSz) {
+    if (bckColor === undefined || fontSz === undefined || color === undefined) {
+        this.style.fontSize = "30px";
+        this.style.color = "whitesmoke";
+        this.style.backgroundColor = "gray";
     } else {
-        div.style.fontSize = this.fontSz;
-        div.style.color = this.color;
-        div.style.backgroundColor = this.bckcolor;
+        this.style.fontSize = fontSz;
+        this.style.color = color;
+        this.style.backgroundColor = bckColor;
     }
-    div.innerHTML = "New div!";
-    container.appendChild(div);
 }
 
-let div = new NewDiv("black","yellow");
-div.create();
+const div = document.querySelector(".container");
+
+const getCustom = customize.bind(div, "black", "yellow", "40px");
+getCustom();
