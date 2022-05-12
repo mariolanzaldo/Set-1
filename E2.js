@@ -1,10 +1,10 @@
 function limitFunc(fn, n) {
-    return function() {
-        return n-- > 0 ? fn.apply(this, arguments) : console.log("It won't execute");
+    return function () {
+        return n-- > 0 ? fn.apply(this, arguments) : console.error("It won't execute");
     };
 }
 
-var limited = limitFunc(function(number){ 
+var limited = limitFunc(function (number) {
     console.log(`A unit was added, the new result is ${++number}`);
 }, 3);
 
