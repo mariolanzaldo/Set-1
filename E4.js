@@ -1,6 +1,6 @@
 function copyProp(objA, objB, arrayIn) {
   if (arrayIn === undefined) {
-    for (i in objB)
+    for (let i in objB)
       objA[i] = typeof objB[i] == 'object' ? copyProp(objB[i]) : objB[i];
     return objA;
   } else {
@@ -8,7 +8,7 @@ function copyProp(objA, objB, arrayIn) {
       if (arrayIn.indexOf(k) > -1) target[k] = objB[k];
       return target;
     }, objA);
-    return objA
+    return objA;
   }
 }
 
@@ -22,5 +22,3 @@ let objB = {
 objA = copyProp(objA, objB, ["p1", "p3"]);
 // objA = copyProp(objA,objB);
 console.log(objA);
-
-
