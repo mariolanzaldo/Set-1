@@ -31,7 +31,7 @@ function sortArr(array, custom) {
             output = array.sort(desConsonant);
             return output;
         default:
-            throw new Error(`The input is not allowed!`);
+            throw new Error(`The custom sorting method: ${custom} is not supported`);
     }
 }
 
