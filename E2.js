@@ -1,6 +1,10 @@
 function limitFunc(fn, n) {
     return function () {
-        return n-- > 0 ? fn.apply(this, arguments) : console.error("It won't execute");
+        if (n-- > 0) {
+            return fn.apply(this, arguments);
+        } else {
+            throw new Error("It won't execute")
+        }
     };
 }
 
